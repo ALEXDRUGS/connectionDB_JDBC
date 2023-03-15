@@ -8,7 +8,7 @@ public interface EmployeeDAO {
 
     List<Employee> getAllEmployees();
 
-    void updateEmployeeByIdInConstructor(Employee employee);
+    void updateEmployee(Employee employee);
 
-    void deleteEmployeeByIdInConstructor(Employee employee);
+    void deleteEmployee(Employee employee);
 }
