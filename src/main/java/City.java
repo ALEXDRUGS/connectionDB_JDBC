@@ -11,7 +11,7 @@ public class City {
     private Integer cityId;
     @Column(name = "city_name")
     private String cityName;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Employee> employee;
 
     public City(String cityName, Integer cityId) {
