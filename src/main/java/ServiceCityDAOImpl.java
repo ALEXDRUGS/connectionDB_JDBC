@@ -3,42 +3,41 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class ServiceEmployeeDAOImpl implements EmployeeDAO {
-
+public class ServiceCityDAOImpl implements CityDAO {
     @Override
-    public void createEmployee(Employee employee) {
+    public void createCity(City city) {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.save(employee);
+            session.save(city);
             transaction.commit();
         }
     }
 
     @Override
-    public Employee getEmployeeById(Integer id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Employee.class, id);
+    public City getCityById(Integer id) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(City.class, id);
     }
 
     @Override
-    public List<Employee> getAllEmployees() {
+    public List<City> getAllCites() {
         return HibernateSessionFactoryUtil
-                .getSessionFactory().openSession().createQuery("From Employee", Employee.class).list();
+                .getSessionFactory().openSession().createQuery("From City", City.class).list();
     }
 
     @Override
-    public void updateEmployee(Employee employee) {
+    public void updateCity(City city) {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.update(employee);
+            session.update(city);
             transaction.commit();
         }
     }
 
     @Override
-    public void deleteEmployee(Employee employee) {
+    public void deleteCity(City city) {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.delete(employee);
+            session.delete(city);
             transaction.commit();
         }
     }
